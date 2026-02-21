@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0rc2 on win32)" generated="2026-02-21T21:50:46.794245" rpa="false" schemaversion="5">
+<suite id="s1" name="Loginjobth" source="C:\robot_training\test\loginjobth.robot">
+<test id="s1-t1" name="Login success" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-21T21:50:47.024251" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-21T21:50:47.024251" elapsed="2.504634"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.528885" elapsed="0.028019"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-21T21:50:49.556904" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.556904" elapsed="0.163368"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-21T21:50:49.720966" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.720272" elapsed="0.093956"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-21T21:50:49.814228" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.814228" elapsed="0.106576"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Product</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.920804" elapsed="0.015744"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-21T21:50:49.936548" elapsed="2.148834"/>
+</kw>
+<status status="PASS" start="2026-02-21T21:50:47.024251" elapsed="5.061131"/>
+</test>
+<status status="PASS" start="2026-02-21T21:50:46.794245" elapsed="5.291137"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Loginjobth" id="s1" pass="1" fail="0" skip="0">Loginjobth</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
