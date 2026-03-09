@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.11.0rc2 on win32)" generated="2026-02-22T19:15:27.539591" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot Training" source="C:\robot_training">
+<suite id="s1-s1" name="Test" source="C:\robot_training\test">
+<suite id="s1-s1-s1" name="Robot Addcart" source="C:\robot_training\test\robot_addcart.robot">
+<test id="s1-s1-s1-t1" name="Add Product To Cart" line="4">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:27.789599" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-22T19:15:27.789599" elapsed="1.539048"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.329671" elapsed="0.032606"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.363276" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.362277" elapsed="0.141726"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.505005" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.504003" elapsed="0.087785"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.593101" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.593101" elapsed="0.115066"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=add-to-cart-sauce-labs-bike-light</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.709675" elapsed="0.022252"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.734238" level="INFO">Clicking element 'id=add-to-cart-sauce-labs-bike-light'.</msg>
+<arg>id=add-to-cart-sauce-labs-bike-light</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.731927" elapsed="0.065696"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.798626" level="INFO">Clicking element 'id=shopping_cart_container'.</msg>
+<arg>id=shopping_cart_container</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.797623" elapsed="0.078060"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.cart_item</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.875683" elapsed="0.020334"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-02-22T19:15:29.925111" level="INFO">${item_name} = Sauce Labs Bike Light</msg>
+<var>${item_name}</var>
+<arg>css=.inventory_item_name</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.896017" elapsed="0.029094"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${item_name}</arg>
+<arg>Sauce Labs Bike Light</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.926110" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-22T19:15:29.927112" elapsed="2.139270"/>
+</kw>
+<status status="PASS" start="2026-02-22T19:15:27.789599" elapsed="4.276783"/>
+</test>
+<status status="PASS" start="2026-02-22T19:15:27.589673" elapsed="4.482227"/>
+</suite>
+<status status="PASS" start="2026-02-22T19:15:27.579478" elapsed="4.496473"/>
+</suite>
+<status status="PASS" start="2026-02-22T19:15:27.543617" elapsed="4.535902"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot Training" id="s1" pass="1" fail="0" skip="0">Robot Training</stat>
+<stat name="Test" id="s1-s1" pass="1" fail="0" skip="0">Robot Training.Test</stat>
+<stat name="Robot Addcart" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot Training.Test.Robot Addcart</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

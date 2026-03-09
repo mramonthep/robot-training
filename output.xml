@@ -1,60 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.11.0rc2 on win32)" generated="2026-02-21T21:50:46.794245" rpa="false" schemaversion="5">
-<suite id="s1" name="Loginjobth" source="C:\robot_training\test\loginjobth.robot">
-<test id="s1-t1" name="Login success" line="10">
+<robot generator="Robot 7.4.1 (Python 3.11.0rc2 on win32)" generated="2026-02-26T23:54:04.398228" rpa="false" schemaversion="5">
+<suite id="s1" name="Datadriven Test" source="C:\robot_training\test\datadriven_test.robot">
+<test id="s1-t1" name="Login With Multiple Users" line="8">
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2026-02-26T23:54:04.653837" level="INFO" html="true">Getting file '&lt;a href="file://C:\robot_training\test_data\users.csv"&gt;C:\robot_training\test_data\users.csv&lt;/a&gt;'.</msg>
+<msg time="2026-02-26T23:54:04.658239" level="INFO">${file} = username,password
+standard_user,secret_sauce
+locked_out_user,secret_sauce
+problem_user,secret_sauce</msg>
+<var>${file}</var>
+<arg>C:/robot_training/test_data/users.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2026-02-26T23:54:04.653837" elapsed="0.004402"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2026-02-26T23:54:04.658239" level="INFO">4 lines returned.</msg>
+<msg time="2026-02-26T23:54:04.658239" level="INFO">@{lines} = [ username,password | standard_user,secret_sauce | locked_out_user,secret_sauce | problem_user,secret_sauce ]</msg>
+<var>@{lines}</var>
+<arg>${file}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2026-02-26T23:54:04.658239" level="INFO">${parts} = ['standard_user', 'secret_sauce']</msg>
+<var>${parts}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-26T23:54:04.658239" level="INFO">${username} = standard_user</msg>
+<var>${username}</var>
+<arg>${parts}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-26T23:54:04.658239" level="INFO">${password} = secret_sauce</msg>
+<var>${password}</var>
+<arg>${parts}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="0.000000"/>
+</kw>
+<kw name="Openbrowser and Login by" owner="login_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-21T21:50:47.024251" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2026-02-26T23:54:04.658239" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
 <arg>${URL}</arg>
-<arg>Chrome</arg>
+<arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-21T21:50:47.024251" elapsed="2.504634"/>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="1.547248"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.528885" elapsed="0.028019"/>
+<status status="PASS" start="2026-02-26T23:54:06.207193" elapsed="0.032214"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-21T21:50:49.556904" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<msg time="2026-02-26T23:54:06.240407" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
 <arg>id=user-name</arg>
-<arg>${USERNAME}</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.556904" elapsed="0.163368"/>
+<status status="PASS" start="2026-02-26T23:54:06.239407" elapsed="0.147783"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-02-21T21:50:49.720966" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<msg time="2026-02-26T23:54:06.388699" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
 <arg>id=password</arg>
-<arg>${PASSWORD}</arg>
+<arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.720272" elapsed="0.093956"/>
+<status status="PASS" start="2026-02-26T23:54:06.387190" elapsed="0.085292"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-02-21T21:50:49.814228" level="INFO">Clicking element 'id=login-button'.</msg>
+<msg time="2026-02-26T23:54:06.473634" level="INFO">Clicking element 'id=login-button'.</msg>
 <arg>id=login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.814228" elapsed="0.106576"/>
+<status status="PASS" start="2026-02-26T23:54:06.472482" elapsed="0.105186"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Product</arg>
-<arg>10s</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.920804" elapsed="0.015744"/>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="1.919429"/>
 </kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:06.593822" level="INFO">Current page contains text 'Products'.</msg>
+<arg>Products</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-26T23:54:06.577668" elapsed="0.016154"/>
+</kw>
+<kw name="Close Browser Session" owner="login_keywords">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-02-21T21:50:49.936548" elapsed="2.148834"/>
+<status status="PASS" start="2026-02-26T23:54:06.593822" elapsed="2.180212"/>
 </kw>
-<status status="PASS" start="2026-02-21T21:50:47.024251" elapsed="5.061131"/>
+<status status="PASS" start="2026-02-26T23:54:06.593822" elapsed="2.180212"/>
+</kw>
+<var name="${line}">standard_user,secret_sauce</var>
+<status status="PASS" start="2026-02-26T23:54:04.658239" elapsed="4.115795"/>
+</iter>
+<iter>
+<kw name="Split String" owner="String">
+<msg time="2026-02-26T23:54:08.774034" level="INFO">${parts} = ['locked_out_user', 'secret_sauce']</msg>
+<var>${parts}</var>
+<arg>${line}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2026-02-26T23:54:08.774034" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-26T23:54:08.774034" level="INFO">${username} = locked_out_user</msg>
+<var>${username}</var>
+<arg>${parts}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-26T23:54:08.774034" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-02-26T23:54:08.774034" level="INFO">${password} = secret_sauce</msg>
+<var>${password}</var>
+<arg>${parts}[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-02-26T23:54:08.774034" elapsed="0.000000"/>
+</kw>
+<kw name="Openbrowser and Login by" owner="login_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:08.774034" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-26T23:54:08.774034" elapsed="1.452358"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-02-26T23:54:10.226392" elapsed="0.033872"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:10.261265" level="INFO">Typing text 'locked_out_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-26T23:54:10.260264" elapsed="0.118011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:10.379282" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-26T23:54:10.378275" elapsed="0.080847"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:10.459122" level="INFO">Clicking element 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-26T23:54:10.459122" elapsed="0.074486"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2026-02-26T23:54:08.774034" elapsed="1.759574"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-26T23:54:10.629357" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-02-26T23:54:10.629357" level="FAIL">Page should have contained text 'Products' but did not.</msg>
+<arg>Products</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2026-02-26T23:54:10.535531" elapsed="0.093826">Page should have contained text 'Products' but did not.</status>
+</kw>
+<kw name="Close Browser Session" owner="login_keywords">
+<status status="NOT RUN" start="2026-02-26T23:54:10.629357" elapsed="0.000000"/>
+</kw>
+<var name="${line}">locked_out_user,secret_sauce</var>
+<status status="FAIL" start="2026-02-26T23:54:08.774034" elapsed="1.855323">Page should have contained text 'Products' but did not.</status>
+</iter>
+<var>${line}</var>
+<value>@{lines}[1:]</value>
+<status status="FAIL" start="2026-02-26T23:54:04.658239" elapsed="5.971118">Page should have contained text 'Products' but did not.</status>
+</for>
+<status status="FAIL" start="2026-02-26T23:54:04.653837" elapsed="5.975520">Page should have contained text 'Products' but did not.</status>
 </test>
-<status status="PASS" start="2026-02-21T21:50:46.794245" elapsed="5.291137"/>
+<status status="FAIL" start="2026-02-26T23:54:04.398228" elapsed="6.248439"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Loginjobth" id="s1" pass="1" fail="0" skip="0">Loginjobth</stat>
+<stat name="Datadriven Test" id="s1" pass="0" fail="1" skip="0">Datadriven Test</stat>
 </suite>
 </statistics>
 <errors>
