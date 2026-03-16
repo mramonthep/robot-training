@@ -4,7 +4,7 @@
 **Module:** Login  
 **Severity:** Medium  
 **Priority:** Medium  
-**Environment:** Chrome Browser / Windows 10  
+**Environment:** Chrome Browser / Windows 11  
 
 ---
 
