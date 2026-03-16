@@ -1,12 +1,10 @@
-# Product Page Test Cases
+# Cart Test Cases
 
 | Test Case ID | Scenario | Steps | Expected Result |
 |--------------|----------|------|----------------|
-| TC-PROD-001 | Verify product list is displayed after login | 1. Login with valid credentials | Products page is displayed showing the list of available products. |
-| TC-PROD-002 | Verify product name is displayed | 1. Login 2. Navigate to products page | Each product displays its name correctly on the product card. |
-| TC-PROD-003 | Verify product price is displayed | 1. Login 2. View product list | Each product displays its price below the product name. |
-| TC-PROD-004 | Sort products by price low to high | 1. Login 2. Select "Price (low to high)" from sort dropdown | Products are reordered from the lowest price to the highest price. |
-| TC-PROD-005 | Sort products by price high to low | 1. Login 2. Select "Price (high to low)" from sort dropdown | Products are reordered from the highest price to the lowest price. |
-| TC-PROD-006 | Sort products by name A to Z | 1. Login 2. Select "Name (A to Z)" | Products are sorted alphabetically in ascending order. |
-| TC-PROD-007 | Sort products by name Z to A | 1. Login 2. Select "Name (Z to A)" | Products are sorted alphabetically in descending order. |
-| TC-PROD-008 | Verify product image is displayed | 1. Login 2. View product list | Each product displays an image associated with the product. |
+| TC-CART-001 | Add product to cart | 1. Login 2. Click "Add to Cart" on a product | Selected product is added to cart and cart icon count increases by 1. |
+| TC-CART-002 | Add multiple products to cart | 1. Login 2. Add two or more products | Cart icon displays the correct number of added products. |
+| TC-CART-003 | Remove product from cart from product page | 1. Login 2. Add product to cart 3. Click "Remove" | Product is removed and cart count decreases. |
+| TC-CART-004 | Verify cart page displays added products | 1. Login 2. Add product 3. Click cart icon | Cart page displays the product with correct name and price. |
+| TC-CART-005 | Verify cart item quantity | 1. Login 2. Add product 3. Open cart | Product quantity is displayed as 1 for each added item. |
+| TC-CART-006 | Remove product from cart page | 1. Login 2. Add product 3. Open cart 4. Click Remove | Product is removed from cart list. |
