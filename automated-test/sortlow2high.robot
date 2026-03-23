@@ -3,7 +3,7 @@ Resource    ../resources/login_keywords.robot
 Library     Collections
 Library     String
 *** Test Cases ***
-Sort Products High to Low
+Sort Products Low to High
     Openbrowser and Login
     Select From List By Value    css=.product_sort_container    lohi
     ${prices}=    Get WebElements    css=.inventory_item_price
