@@ -1,4 +1,3 @@
-
 *** Settings ***
 Resource    ../resources/login_keywords.robot
 Library     Collections
